@@ -6,8 +6,13 @@ to find and rank pages based on search queries.
 """
 
 from typing import List, Dict, Tuple, Optional
-from src.indexer import InvertedIndex
 import re
+
+# Support both direct execution and module import
+try:
+    from src.indexer import InvertedIndex
+except ModuleNotFoundError:
+    from indexer import InvertedIndex
 
 
 class SearchEngine:

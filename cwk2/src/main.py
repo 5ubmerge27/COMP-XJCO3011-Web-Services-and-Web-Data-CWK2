@@ -12,9 +12,16 @@ It provides a command-line interface with the following commands:
 
 import os
 import sys
-from src.crawler import WebCrawler
-from src.indexer import InvertedIndex
-from src.search import SearchEngine
+
+# Support both direct execution and module import
+try:
+    from src.crawler import WebCrawler
+    from src.indexer import InvertedIndex
+    from src.search import SearchEngine
+except ModuleNotFoundError:
+    from crawler import WebCrawler
+    from indexer import InvertedIndex
+    from search import SearchEngine
 
 
 class SearchEngineCLI:
